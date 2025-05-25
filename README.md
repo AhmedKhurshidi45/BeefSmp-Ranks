@@ -1,0 +1,1 @@
+# BeefSmp-Ranks
