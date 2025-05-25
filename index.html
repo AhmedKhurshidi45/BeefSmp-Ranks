@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Server - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="minecraft-background"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="minecraft_title_13.png" alt="BeefSmp Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="ranks.html">Ranks</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to Our Minecraft Server</h1>
+            <p class="subtitle">Join thousands of players in an epic adventure!</p>
+            <div class="hero-buttons">
+                <a href="ranks.html" class="cta-button">Get Started</a>
+                <a href="https://discord.gg/HNm7WVHv" class="discord-button discord-button-hero" target="_blank">
+                    <img src="discord-logo.png" alt="Discord" class="discord-icon">
+                    Join Discord
+                </a>
+            </div>
+            <div class="server-status">
+                <div class="status-item">
+                    <span class="status-label">Server Status:</span>
+                    <span class="status-value online">Online</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Server IP:</span>
+                    <span class="status-value copy-ip" onclick="copyToClipboard('Beefsmp.xyz')">Beefsmp.xyz</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2>Server Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚔️</div>
+                <h3>Survival Mode</h3>
+                <p>Experience the classic Minecraft survival gameplay with our custom enhancements and challenges.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏰</div>
+                <h3>Custom Worlds</h3>
+                <p>Explore unique worlds with custom terrain generation and special biomes.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3>Mini Games</h3>
+                <p>Play exciting mini-games with friends and compete for rewards.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💎</div>
+                <h3>Economy System</h3>
+                <p>Trade, buy, and sell items in our player-driven economy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="news-section">
+        <h2>Latest Updates</h2>
+        <div class="news-grid">
+            <article class="news-card">
+                <div class="news-date">March 15, 2024</div>
+                <h3>New World Expansion</h3>
+                <p>Explore our newly added world with unique biomes and challenges!</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+            <article class="news-card">
+                <div class="news-date">March 10, 2024</div>
+                <h3>Spring Event</h3>
+                <p>Join our spring celebration with special rewards and activities!</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+            <article class="news-card">
+                <div class="news-date">March 5, 2024</div>
+                <h3>Server Optimization</h3>
+                <p>Major performance improvements and bug fixes implemented.</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Minecraft Server. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://discord.gg/HNm7WVHv" class="social-link" target="_blank">Discord</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const element = document.querySelector('.copy-ip');
+                const originalText = element.textContent;
+                element.textContent = 'Copied!';
+                element.style.color = 'var(--primary-orange)';
+                setTimeout(() => {
+                    element.textContent = originalText;
+                    element.style.color = '';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html> 

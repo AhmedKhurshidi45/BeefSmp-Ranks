@@ -1,0 +1,170 @@
+/* Ranks Section Styles */
+.ranks-section {
+    padding: 120px 2rem 4rem;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+    color: var(--gray-200);
+}
+
+.ranks-section h2 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--primary-orange);
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ranks-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--primary-orange);
+    border-radius: 2px;
+}
+
+.ranks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.rank-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.rank-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.rank-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.rank-card h3 {
+    color: var(--primary-orange);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.price {
+    font-size: 2.5rem;
+    color: var(--gray-200);
+    font-weight: 700;
+    margin: 1rem 0 2rem;
+    padding: 0.5rem 2rem;
+    background: rgba(255, 107, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid var(--primary-orange);
+}
+
+.features {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 0;
+    width: 100%;
+}
+
+.features li {
+    color: var(--gray-300);
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.1rem;
+}
+
+.features li:last-child {
+    border-bottom: none;
+}
+
+.buy-button {
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-orange-dark) 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+    font-weight: 600;
+    margin-top: auto;
+}
+
+.buy-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+}
+
+/* Featured Rank Card */
+.rank-card.featured {
+    background: rgba(255, 107, 0, 0.1);
+    border: 2px solid var(--primary-orange);
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.rank-card.featured:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.rank-card.featured .price {
+    background: rgba(255, 107, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ranks-section {
+        padding-top: 100px;
+    }
+
+    .ranks-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .ranks-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .rank-card {
+        padding: 2rem;
+    }
+
+    .rank-card.featured {
+        transform: none;
+    }
+
+    .rank-card.featured:hover {
+        transform: translateY(-10px);
+    }
+
+    .price {
+        font-size: 2rem;
+        padding: 0.5rem 1.5rem;
+    }
+} 

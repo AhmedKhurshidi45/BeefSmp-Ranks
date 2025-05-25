@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Minecraft Server</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <div class="minecraft-background"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="minecraft_title_13.png" alt="BeefSmp Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ranks.html">Ranks</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>Have questions about our server or need support? We're here to help! Fill out the form and we'll get back to you as soon as possible.</p>
+                <a href="https://discord.gg/HNm7WVHv" class="discord-button" target="_blank">
+                    Join Our Discord
+                </a>
+            </div>
+            
+            <div class="contact-form-container">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="username">Minecraft Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="support">Technical Support</option>
+                            <option value="billing">Billing Question</option>
+                            <option value="report">Report an Issue</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Minecraft Server. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://discord.gg/HNm7WVHv" class="social-link" target="_blank">Discord</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            // Replace 'YOUR_WEBHOOK_URL' with your actual Discord webhook URL
+            const webhookUrl = 'https://discord.com/api/webhooks/1376127597242745035/s_DNP3tpuAUodMtkLm22TRWAHOmt8JY_amnhChWXHYcBwJ5aSQdtr8BF71ZSl1h4Dv8o';
+            
+            const embed = {
+                title: 'New Contact Form Submission',
+                color: 16711680, // Orange color
+                fields: [
+                    {
+                        name: 'Minecraft Username',
+                        value: formData.username,
+                        inline: true
+                    },
+                    {
+                        name: 'Email',
+                        value: formData.email,
+                        inline: true
+                    },
+                    {
+                        name: 'Subject',
+                        value: formData.subject,
+                        inline: true
+                    },
+                    {
+                        name: 'Message',
+                        value: formData.message
+                    }
+                ],
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        embeds: [embed]
+                    })
+                });
+
+                if (response.ok) {
+                    alert('Message sent successfully! We will get back to you soon.');
+                    document.getElementById('contactForm').reset();
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                alert('Failed to send message. Please try again later.');
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html> 
